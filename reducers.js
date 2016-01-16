@@ -1,17 +1,18 @@
+import { combineReducers } from 'redux'
 import { SHOW_CARD } from './actions'
 
-const initialState = {
-  activeQuestion: false
-}
-
-export default function (state = initialState, action) {
+function activeQuestion (state = false, action) {
   switch (action.type) {
     case SHOW_CARD:
-      return Object.assign({}, state, {
-        activeQuestion: !state.activeQuestion
-      })
+      return !state
       break;
     default:
       return state
   }
 }
+
+const jeopardyApp = combineReducers({
+  activeQuestion
+})
+
+export default jeopardyApp
