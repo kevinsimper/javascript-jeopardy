@@ -6,7 +6,7 @@ export default class Category extends React.Component {
   render() {
     var questions = []
     for(var i = 1; i < 6; i++) {
-      questions.push(<Question>{i * 100}</Question>)
+      questions.push(<Question key={i}>{i * 100}</Question>)
     }
 
     return (
