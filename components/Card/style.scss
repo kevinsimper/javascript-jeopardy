@@ -4,4 +4,8 @@
   margin: 20px;
   padding: 20px;
   font-size: 2rem;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: #FF851B;
+  }
 }

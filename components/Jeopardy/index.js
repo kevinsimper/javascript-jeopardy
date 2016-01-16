@@ -13,9 +13,7 @@ class Jeopardy extends React.Component {
         <div className={styles.Board}>
           {this.props.data.map((item, id) => <Category key={id} item={item}/>)}
         </div>
-        {this.props.activeQuestion &&
-          <Question/>
-        }
+        <Question active={this.props.activeQuestion}/>
       </div>
     )
   }
