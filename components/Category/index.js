@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './style.scss'
-import Question from '../Question'
+import Question from '../Card'
 
 export default class Category extends React.Component {
   render() {
