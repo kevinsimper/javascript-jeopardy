@@ -34,9 +34,17 @@ export default class Question extends React.Component {
     return (
       <TransitionMotion styles={this.getStyles()} willEnter={this.willEnter} willLeave={this.willLeave}>
         {value => {
-        if(value.question) {
+          if(value.question) {
+            let inlineStyles = {
+              width: value.question.width + '%',
+              height: value.question.width + '%',
+              opacity: value.question.opacity,
+              zoom: value.question.width + '%',
+              top: value.question.position,
+              left: value.question.position
+            }
             return (
-              <div className={styles.Question} style={{width: value.question.width + '%', height: value.question.width + '%', opacity: value.question.opacity, zoom: value.question.width + '%', top: value.question.position, left: value.question.position}}>
+              <div className={styles.Question} style={inlineStyles}>
                 Who invented JavaScript?
               </div>
             )
