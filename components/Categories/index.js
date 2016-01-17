@@ -6,8 +6,8 @@ export default class Categories extends React.Component {
   render() {
     return (
       <div className={styles.Categories}>
-        {this.props.data.map((item) => {
-          return <Category data={item}/>
+        {this.props.data.map((item, key) => {
+          return <Category key={key} data={item}/>
         })}
       </div>
     )

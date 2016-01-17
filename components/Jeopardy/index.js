@@ -1,5 +1,4 @@
 import React from 'react'
-import Category from '../Category'
 import Categories from '../Categories'
 import styles from './style.scss'
 import Question from '../Question'
@@ -9,10 +8,11 @@ import { showCard } from '../../actions'
 class Jeopardy extends React.Component {
   render() {
     const { dispatch } = this.props
+    console.log(this.props)
     return (
       <div className={styles.Jeopardy} onClick={() => dispatch(showCard())}>
         <div className={styles.Board}>
-          <Categories data={this.props.data.categories} />
+          <Categories data={this.props.categories} />
         </div>
         <Question active={this.props.activeQuestion}/>
       </div>
@@ -21,8 +21,10 @@ class Jeopardy extends React.Component {
 }
 
 function select (state) {
+  console.log(state)
   return {
-    activeQuestion: state.activeQuestion
+    activeQuestion: state.activeQuestion,
+    categories: state.categories
   }
 }
 

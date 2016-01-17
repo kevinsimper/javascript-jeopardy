@@ -7,8 +7,8 @@ export default class Category extends React.Component {
     return (
       <div className={styles.Category}>
         <div className={styles.Header}>{this.props.data.name}</div>
-        {this.props.data.questions.map((item) => {
-          return <Card>{item.points}</Card>
+        {this.props.data.questions.map((item, key) => {
+          return <Card key={key}>{item.points}</Card>
         })}
       </div>
     )
