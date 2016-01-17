@@ -1,5 +1,6 @@
 import React from 'react'
 import Category from '../Category'
+import Categories from '../Categories'
 import styles from './style.scss'
 import Question from '../Question'
 import { connect } from 'react-redux'
@@ -11,7 +12,7 @@ class Jeopardy extends React.Component {
     return (
       <div className={styles.Jeopardy} onClick={() => dispatch(showCard())}>
         <div className={styles.Board}>
-          {this.props.data.map((item, id) => <Category key={id} item={item}/>)}
+          <Categories data={this.props.data.categories} />
         </div>
         <Question active={this.props.activeQuestion}/>
       </div>
