@@ -5,7 +5,7 @@ export default class Question extends React.Component {
   render() {
     return (
       <div className={styles.Question} onClick={this.props.onClick}>
-        {this.props.children}
+        {this.props.item.points}
       </div>
     )
   }
