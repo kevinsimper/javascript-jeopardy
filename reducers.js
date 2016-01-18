@@ -142,8 +142,46 @@ var categoriesData = [
   },
 ]
 
-function categories (state = categoriesData) {
-  return state
+function questions (state, action) {
+  switch(action.type) {
+    case SHOW_CARD:
+      return state.map((question) => {
+        if(question !== action.question) {
+          return question
+        }
+        return Object.assign({}, question, {
+          completed: true
+        })
+      })
+      break;
+    default:
+      return state
+  }
+}
+
+
+function category (state = {}, action) {
+  switch(action.type) {
+    case SHOW_CARD:
+      if(action.category !== state.name) {
+        return state
+      }
+      return Object.assign({}, state, {
+        questions: questions(state.questions, action)
+      })
+      break
+    default:
+      return state
+  }
+}
+
+function categories (state = categoriesData, action) {
+  switch(action.type) {
+    case SHOW_CARD:
+      return state.map(c => category(c, action))
+    default:
+      return state
+  }
 }
 
 const jeopardyApp = combineReducers({

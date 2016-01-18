@@ -2,9 +2,18 @@ import React from 'react'
 import styles from './style.scss'
 
 export default class Question extends React.Component {
+  getStyles() {
+    if(this.props.item.completed) {
+      return {
+        opacity: 0.5
+      }
+    } else {
+      return {}
+    }
+  }
   render() {
     return (
-      <div className={styles.Question} onClick={this.props.onClick}>
+      <div className={styles.Question} onClick={this.props.onClick} style={this.getStyles()}>
         {this.props.item.points}
       </div>
     )
