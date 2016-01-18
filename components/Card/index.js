@@ -5,7 +5,8 @@ export default class Question extends React.Component {
   getStyles() {
     if(this.props.item.completed) {
       return {
-        opacity: 0.5
+        opacity: 0.5,
+        background: '#D3D3D3'
       }
     } else {
       return {}
