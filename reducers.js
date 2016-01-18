@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
-import { SHOW_CARD } from './actions'
+import { SHOW_CARD, CLOSE_QUESTION } from './actions'
 
 function activeQuestion (state = false, action) {
   switch (action.type) {
     case SHOW_CARD:
       return !state
+      break;
+    case CLOSE_QUESTION:
+      return false
       break;
     default:
       return state
@@ -140,7 +143,6 @@ var categoriesData = [
 ]
 
 function categories (state = categoriesData) {
-  console.log('cat', state)
   return state
 }
 

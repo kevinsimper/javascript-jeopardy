@@ -30,6 +30,9 @@ export default class Question extends React.Component {
       position: spring(440)
     }
   }
+  onClick() {
+    this.props.onClickQuestion()
+  }
   render() {
     return (
       <TransitionMotion styles={this.getStyles()} willEnter={this.willEnter} willLeave={this.willLeave}>
@@ -44,7 +47,7 @@ export default class Question extends React.Component {
               left: value.question.position
             }
             return (
-              <div className={styles.Question} style={inlineStyles}>
+              <div className={styles.Question} style={inlineStyles} onClick={this.onClick.bind(this)}>
                 Who invented JavaScript?
               </div>
             )

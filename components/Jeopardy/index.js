@@ -3,25 +3,27 @@ import Categories from '../Categories'
 import styles from './style.scss'
 import Question from '../Question'
 import { connect } from 'react-redux'
-import { showCard } from '../../actions'
+import { showCard, closeQuestion } from '../../actions'
 
 class Jeopardy extends React.Component {
   render() {
     const { dispatch } = this.props
-    console.log(this.props)
     return (
-      <div className={styles.Jeopardy} onClick={() => dispatch(showCard())}>
+      <div className={styles.Jeopardy}>
         <div className={styles.Board}>
-          <Categories data={this.props.categories} />
+          <Categories data={this.props.categories} onCardClick={(category, question) => {
+            dispatch(showCard(category, question))
+          }} />
         </div>
-        <Question active={this.props.activeQuestion}/>
+        <Question active={this.props.activeQuestion} onClickQuestion={() => {
+            dispatch(closeQuestion())
+          }}/>
       </div>
     )
   }
 }
 
 function select (state) {
-  console.log(state)
   return {
     activeQuestion: state.activeQuestion,
     categories: state.categories
