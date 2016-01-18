@@ -5,6 +5,8 @@
   padding: 20px;
   font-size: 2rem;
   transition: all 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 0px #ECECEC;
   &:hover {
     background-color: #FF851B;
   }
